@@ -14,7 +14,6 @@ const Cast = ({movieId}) => {
 
         const data = await getMovieCast(movieId);
         setMovieCast(data.cast.slice(0, 10));
-        console.log(data.cast.slice(0, 10));
         setStatuses(STATUSES.success)
 
       } catch (error) {
@@ -33,6 +32,7 @@ const Cast = ({movieId}) => {
     {movieCast && <ul>
       {movieCast.map(actor =>
         <li key={actor.id}>
+          <img src="" alt="" />
           <p>{actor.name}</p>
         </li>
       )}

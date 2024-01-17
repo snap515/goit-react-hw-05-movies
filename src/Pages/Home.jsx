@@ -1,18 +1,10 @@
-import { Link } from "react-router-dom"
+import { MoviesList } from "components/MoviesList/MoviesList"
 
 const Home = ({ trendMovies }) => {
   if (!trendMovies) {
     return <div>Loading...</div>
   }
-  console.log(trendMovies)
-  return <div>
-    <ul>
-      {trendMovies.results.map(movie =>
-        <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-        </li>)}
-    </ul>
-  </div>
+  return <MoviesList movies={trendMovies}></MoviesList>
 }
 
 export default Home;

@@ -13,10 +13,11 @@ const Reviews = ({movieId}) => {
         setStatuses(STATUSES.pending)
 
         const data = await getMovieReviews(movieId);
-        setMovieReviews(data.results);
-        console.log(data.results)
-        setStatuses(STATUSES.success)
+        if (data.results.length !== 0) {
+          setMovieReviews(data.results);
+        }
 
+        setStatuses(STATUSES.success)
       } catch (error) {
         setStatuses(STATUSES.error);
         setError(error);
@@ -28,17 +29,18 @@ const Reviews = ({movieId}) => {
   }, [movieReviews, movieId])
 
   return <>
-    {statuses === STATUSES.pending && <div>Loading...</div>}
+    {statuses === STATUSES.pending  && <div>Loading...</div>}
     {statuses === STATUSES.error && error && <div>{error.message}</div>}
-    {movieReviews === null ? <div>No reviews yet</div> : 
+    {(!movieReviews && statuses === STATUSES.success) && <div>No reviews yet</div>}
+    {movieReviews &&
       <ul>
         {movieReviews.map(review => 
           <li key={review.id}>
             <h3>{review.author}</h3>
             <p>{review.content}</p>
           </li>)}
-        
-      </ul>}
+      </ul>
+    }
   </>
 }
 

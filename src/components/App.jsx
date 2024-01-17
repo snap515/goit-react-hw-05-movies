@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import Home from "Pages/Home";
-import Movies from "Pages/Movies"
-import { getMovies } from "services/movieService";
+import { Suspense, lazy, useEffect, useState } from "react";
+import { NavLink, Routes, Route } from "react-router-dom";
+
+import { getTrendingMovies } from "services/movieService";
 import { STATUSES } from "utils/Constans";
-import { NavLink,Routes, Route } from "react-router-dom";
 
 import css from './App.module.css'
-import MovieDetails from "Pages/MovieDetails";
+
+const MovieDetails = lazy(() => import('Pages/MovieDetails'));
+const Home = lazy(() => import('Pages/Home'));
+const Movies = lazy(() => import('Pages/Movies'));
 
 export const App = () => {
   const [trendMovies, setTrendMovies] = useState(null);
@@ -18,7 +20,7 @@ export const App = () => {
       try {
         setStatuses(STATUSES.pending)
 
-        const data = await getMovies();
+        const data = await getTrendingMovies();
         setTrendMovies(data);
         setStatuses(STATUSES.success)
 
@@ -41,12 +43,14 @@ export const App = () => {
         <NavLink className={({ isActive }) => `${css.navLink} ${isActive ? css.active : ''}`} to="/movies">Movies</NavLink>
       </header>
       <main>
-
-        <Routes>
-          <Route path="/" element={<Home trendMovies={trendMovies}></Home>}></Route>
-          <Route path="/movies" element={<Movies></Movies>}></Route>
-          <Route path="/movies/:movieId/*" element={<MovieDetails></MovieDetails>}></Route>
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home trendMovies={trendMovies}></Home>}></Route>
+            <Route path="/movies" element={<Movies></Movies>}></Route>
+            <Route path="/movies/:movieId/*" element={<MovieDetails></MovieDetails>}></Route>
+          </Routes>
+        </Suspense>
+        
       </main>
     </div>
   );

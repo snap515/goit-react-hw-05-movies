@@ -52,9 +52,9 @@ const MovieDetails = () => {
         <div>
           <h2>{movieDetails.title}</h2>
           <p></p>
-          <h3></h3>
+          <h3>movie</h3>
           <p></p>
-          <h3></h3>
+          <h3>movie</h3>
           <p></p>
         </div>
           <NavLink to='cast' className={({isActive}) => `${css.navLink} ${isActive? css.active : ''}`}>Cast</NavLink>

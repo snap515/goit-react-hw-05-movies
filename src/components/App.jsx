@@ -12,7 +12,9 @@ const Movies = lazy(() => import('Pages/Movies'));
 
 export const App = () => {
   const [trendMovies, setTrendMovies] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [statuses, setStatuses] = useState(STATUSES.idle);
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
 
   useEffect(() => {

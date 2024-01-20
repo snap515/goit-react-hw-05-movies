@@ -3,9 +3,7 @@ import { defaultImg } from "Pages/MovieDetails/MovieDetails";
 import css from './MovieList.module.css'
 
 export const MoviesList = ({ movies }) => {
-  console.log(movies)
   const location = useLocation();
-  console.log('moviesList location', location)
   return (
     <div className={css.movieListWrapper}>
       <ul className={css.movieList}>

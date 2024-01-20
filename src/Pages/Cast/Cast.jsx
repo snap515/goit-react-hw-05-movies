@@ -4,7 +4,6 @@ import { getMovieCast } from "services/movieService";
 
 import { defaultImg } from "../MovieDetails/MovieDetails";
 import css from './Cast.module.css'
-import { Loader } from "components/Loader/Loader";
 
 const Cast = ({movieId}) => {
   const [movieCast, setMovieCast] = useState(null);
@@ -33,7 +32,6 @@ const Cast = ({movieId}) => {
 
   return (
     <div className={css.castWrapper}>
-    {statuses === STATUSES.pending && <Loader/>}
     {statuses === STATUSES.error && error && <div>{error.message}</div>}
     {movieCast && (
       <ul className={css.actorsList}>

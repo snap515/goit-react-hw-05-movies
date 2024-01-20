@@ -5,6 +5,7 @@ import { getTrendingMovies } from "services/movieService";
 import { STATUSES } from "utils/Constans";
 
 import css from './App.module.css'
+import { Loader } from "./Loader/Loader";
 
 const MovieDetails = lazy(() => import('Pages/MovieDetails/MovieDetails'));
 const Home = lazy(() => import('Pages/Home'));
@@ -48,9 +49,9 @@ export const App = () => {
         
       </header>
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader/>}>
           <Routes>
-            <Route path="/" element={<Home trendMovies={trendMovies}></Home>}></Route>
+            <Route path="/" element={<Home statuses={statuses} trendMovies={trendMovies}></Home>}></Route>
             <Route path="/movies" element={<Movies></Movies>}></Route>
             <Route path="/movies/:movieId/*" element={<MovieDetails></MovieDetails>}></Route>
           </Routes>

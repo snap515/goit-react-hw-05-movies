@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { STATUSES } from "utils/Constans";
 import { getMovieReviews } from "services/movieService";
 import css from './Reviews.module.css'
-import { Loader } from "components/Loader/Loader";
 
 const Reviews = ({movieId}) => {
   const [movieReviews, setMovieReviews] = useState(null);
@@ -31,7 +30,6 @@ const Reviews = ({movieId}) => {
   }, [movieReviews, movieId])
 
   return <>
-    {statuses === STATUSES.pending  && <Loader/>}
     {statuses === STATUSES.error && error && <div>{error.message}</div>}
     {(!movieReviews && statuses === STATUSES.success) && <div className={css.reviewsText}>No reviews yet</div>}
     {movieReviews &&

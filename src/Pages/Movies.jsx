@@ -4,7 +4,6 @@ import { getMovieByTitle } from "services/movieService";
 import { MoviesList } from "components/MoviesList/MoviesList";
 import { SearchForm } from "components/SearchForm/SearchForm";
 import { useSearchParams } from "react-router-dom";
-import { Loader } from "components/Loader/Loader";
 
 
 
@@ -50,8 +49,6 @@ const Movies = () => {
 
   return <>
     <SearchForm onSubmit ={onSubmit} query={query}></SearchForm>
-    {statuses === STATUSES.pending && <Loader></Loader>
-      }
     {statuses === STATUSES.error && error && <div>{error.message}</div>}
     {searchedMovies && <MoviesList movies={searchedMovies}></MoviesList>}
   </>

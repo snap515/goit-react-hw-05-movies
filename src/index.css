@@ -1,4 +1,12 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+/* bring in normalize.css styles */
+
+:root {
+  --main-color: black;
+  --secondary-color: white;
+  --third-color: #343434;
+
+}
 
 body {
   margin: 0;
@@ -7,9 +15,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--third-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+img {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.content-wrapper {
+  max-width: 1600px;
+  width: 100%;
+  /* Ширина контента */
+  margin: 0 auto;
+  /* Центрирование контента */
+  padding: 20px 100px;
+  /* Отступы по бокам */
 }

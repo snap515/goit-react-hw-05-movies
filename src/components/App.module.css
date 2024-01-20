@@ -1,18 +1,28 @@
+.navList {
+  display: flex;
+  gap: 20px;
+}
+
 .navLink {
   display: inline-flex;
-  padding: 20px;
+  padding: 15px;
   min-width: 100px;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid var(--secondary-color);
   border-radius: 7px;
   font-weight: 500;
-  color: inherit;
+  color: var(--secondary-color);
   text-decoration: none;
   transition: all 0.3s;
+  background-color: var(--main-color);
+}
+
+.navLink:hover {
+  transform: scale(1.03);
 }
 
 .active {
-  background-color: black;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--main-color);
 }

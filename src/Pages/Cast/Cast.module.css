@@ -1,0 +1,35 @@
+.castWrapper {
+  margin-top: 20px;
+
+}
+
+.actorsList {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+}
+
+.actor {
+  display: flex;
+  flex-direction: column;
+  width: calc(20% - 20px);
+  transition: transform 0.3s ease-in-out;
+  background-color: var(--main-color);
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.actor:hover {
+  transform: scale(1.03);
+}
+
+.actorsFoto {
+  border-radius: 5px;
+}
+
+.actorsText {
+  text-align: center;
+  color: var(--secondary-color);
+}

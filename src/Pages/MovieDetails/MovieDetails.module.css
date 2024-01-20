@@ -1,0 +1,77 @@
+/* MovieDetailsWrapper */
+.movieDetailsWrapper {
+  display: flex;
+  border: 1px solid white;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: var(--main-color);
+}
+
+/* GoBackBtn */
+.goBackBtn {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  background-color: rgba(255, 166, 0, 0.962);
+
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--main-color);
+  font-weight: bold;
+
+  transition: all 0.3s;
+}
+
+.goBackBtn:hover {
+  background-color: #e66a22;
+  transform: scale(1.03);
+}
+
+/* MoviePoster */
+.moviePoster {
+  width: 450px;
+  height: auto;
+  margin-right: 50px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+/* MovieInfo */
+.MovieInfo {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MovieTitle */
+.movieTitle {
+  font-size: 52px;
+  margin-bottom: 10px;
+}
+
+/* MovieText */
+.movieText {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* MovieStatTitle */
+.movieStatTitle {
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* NavLink */
+
+
+.additionalInfoWrapper {
+
+  display: flex;
+  gap: 20px
+}

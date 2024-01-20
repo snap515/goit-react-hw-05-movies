@@ -6,7 +6,7 @@ import { STATUSES } from "utils/Constans";
 
 import css from './App.module.css'
 
-const MovieDetails = lazy(() => import('Pages/MovieDetails'));
+const MovieDetails = lazy(() => import('Pages/MovieDetails/MovieDetails'));
 const Home = lazy(() => import('Pages/Home'));
 const Movies = lazy(() => import('Pages/Movies'));
 
@@ -39,10 +39,13 @@ export const App = () => {
 
 
   return (
-    <div>
+    <div className='content-wrapper'>
       <header>
-        <NavLink className={({isActive}) => `${css.navLink} ${isActive? css.active : ''}`} to="/">Home</NavLink>
-        <NavLink className={({ isActive }) => `${css.navLink} ${isActive ? css.active : ''}`} to="/movies">Movies</NavLink>
+        <div className={css.navList}>
+          <NavLink className={({ isActive }) => `${css.navLink} ${isActive ? css.active : ''}`} to="/">Home</NavLink>
+          <NavLink className={({ isActive }) => `${css.navLink} ${isActive ? css.active : ''}`} to="/movies">Movies</NavLink>
+        </div>
+        
       </header>
       <main>
         <Suspense fallback={<div>Loading...</div>}>

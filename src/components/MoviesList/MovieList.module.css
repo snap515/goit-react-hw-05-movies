@@ -1,0 +1,67 @@
+/* Общий контейнер для списка фильмов */
+/* .movieListWrapper {
+  width: 100%;
+} */
+
+/* Список фильмов */
+/* .movieList {
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+}
+
+/* Каждый элемент списка фильмов */
+.movieElement {
+  display: flex;
+  width: calc(25% - 20px);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+}
+
+/* Ссылка на страницу фильма */
+.movieLink {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.linkWrapper {
+  display: block;
+}
+
+/* Изображение постера фильма */
+.moviePoster {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movieTitle {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  color: var(--secondary-color);
+  background-color: var(--main-color);
+  ;
+  font-size: 23px;
+}
+
+/* Анимация при наведении на элемент списка фильмов */
+.movieElement:hover {
+  transform: scale(1.03);
+}

@@ -1,0 +1,61 @@
+/* Обертка формы */
+.formWrapper {
+  margin-top: 20px;
+}
+
+/* Стили для формы */
+.form {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+/* Стили для кнопки */
+.formButton {
+  border-radius: 5px;
+  background-color: rgba(255, 166, 0, 0.962);
+  /* Цвет фона кнопки */
+  color: var(--main-color);
+  /* Цвет текста кнопки */
+  padding: 10px 15px;
+  /* Внутренние отступы кнопки */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  /* Плавное изменение цвета фона при наведении */
+
+  &:hover {
+    background-color: #e66a22;
+    transform: scale(1.03);
+    /* Новый цвет фона при наведении */
+  }
+}
+
+/* Стили для текста внутри кнопки */
+.buttonText {
+  font-weight: bold;
+}
+
+/* Стили для текстового поля */
+.formInput {
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 10px;
+  /* Отступ сверху для текстового поля */
+  padding: 8px;
+  /* Внутренние отступы текстового поля */
+  border: 1px solid #ccc;
+  /* Граница текстового поля */
+  border-radius: 4px;
+  /* Скругление углов границы */
+  outline: none;
+  /* Убираем стандартный контур фокуса */
+}
+
+/* Стили для текстового поля в фокусе */
+.formInput:focus {
+  border-color: #3498db;
+  /* Цвет границы при фокусе */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+  /* Тень при фокусе */
+}

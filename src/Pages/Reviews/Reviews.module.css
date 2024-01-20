@@ -1,0 +1,25 @@
+.reviewsWrapper {
+  margin-top: 20px;
+}
+
+.reviewsList {
+  padding: 0;
+}
+
+.reviewsElem {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+
+  margin-bottom: 25px;
+
+  background-color: black;
+}
+
+.reviewsTitle {
+  color: var(--secondary-color);
+}
+
+.reviewsText {
+  color: var(--secondary-color);
+}

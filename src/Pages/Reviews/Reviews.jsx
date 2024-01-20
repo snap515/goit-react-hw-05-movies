@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { STATUSES } from "utils/Constans";
 import { getMovieReviews } from "services/movieService";
+import css from './Reviews.module.css'
+import { Loader } from "components/Loader/Loader";
 
 const Reviews = ({movieId}) => {
   const [movieReviews, setMovieReviews] = useState(null);
@@ -29,17 +31,20 @@ const Reviews = ({movieId}) => {
   }, [movieReviews, movieId])
 
   return <>
-    {statuses === STATUSES.pending  && <div>Loading...</div>}
+    {statuses === STATUSES.pending  && <Loader/>}
     {statuses === STATUSES.error && error && <div>{error.message}</div>}
     {(!movieReviews && statuses === STATUSES.success) && <div>No reviews yet</div>}
     {movieReviews &&
-      <ul>
-        {movieReviews.map(review => 
-          <li key={review.id}>
-            <h3>{review.author}</h3>
-            <p>{review.content}</p>
-          </li>)}
-      </ul>
+      <div className={css.reviewsWrapper}>
+        <ul className={css.reviewsList}>
+          {movieReviews.map(review => 
+            <li className={css.reviewsElem} key={review.id}>
+              <h3 className={css.reviewsTitle}>{review.author}</h3>
+              <p className={css.reviewsText}>{review.content}</p>
+            </li>)}
+        </ul>
+      </div>
+      
     }
   </>
 }

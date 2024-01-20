@@ -33,7 +33,7 @@ const Reviews = ({movieId}) => {
   return <>
     {statuses === STATUSES.pending  && <Loader/>}
     {statuses === STATUSES.error && error && <div>{error.message}</div>}
-    {(!movieReviews && statuses === STATUSES.success) && <div>No reviews yet</div>}
+    {(!movieReviews && statuses === STATUSES.success) && <div className={css.reviewsText}>No reviews yet</div>}
     {movieReviews &&
       <div className={css.reviewsWrapper}>
         <ul className={css.reviewsList}>

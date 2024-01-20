@@ -32,11 +32,11 @@ ul {
 }
 
 .content-wrapper {
-  max-width: 1600px;
+  max-width: 1400px;
   width: 100%;
   /* Ширина контента */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* Центрирование контента */
-  padding: 20px 100px;
+  padding: 20px;
   /* Отступы по бокам */
 }

@@ -5,7 +5,6 @@ import { STATUSES } from "utils/Constans";
 import cssApp from '../../components/App.module.css'
 import css from './MovieDetails.module.css'
 import { Loader } from "components/Loader/Loader";
-import NotFoundPage from "Pages/NotFoundPage/NotFoundPage";
 
 const Cast = lazy(() => import('Pages/Cast/Cast'))
 const Reviews = lazy(() => import('Pages/Reviews/Reviews'))
@@ -19,7 +18,6 @@ const MovieDetails = () => {
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? "/")
 
-
   const {movieId} = useParams();
 
   useEffect(() => {
@@ -27,7 +25,6 @@ const MovieDetails = () => {
     const getDetails = async () => {
       try {
         setStatuses(STATUSES.pending)
-
         const data = await getMovieById(movieId)
         setMovieDetails(data);
         setStatuses(STATUSES.success)
@@ -66,13 +63,11 @@ const MovieDetails = () => {
             <NavLink to='cast' className={({isActive}) => `${cssApp.navLink} ${isActive? cssApp.active : ''}`}>Cast</NavLink>
             <NavLink to='reviews' className={({ isActive }) => `${cssApp.navLink} ${isActive ? cssApp.active : ''}`}>Reviews</NavLink>
           </div>
-            
           
           <Suspense fallback={<div><Loader/></div>}>
             <Routes>
               <Route path="/cast" element={<Cast movieId={movieId}></Cast>}></Route>
               <Route path="/reviews" element={<Reviews movieId={movieId}></Reviews>}></Route>
-              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </div>

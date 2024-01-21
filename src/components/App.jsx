@@ -6,8 +6,8 @@ import { Loader } from "./Loader/Loader";
 import NotFoundPage from "Pages/NotFoundPage/NotFoundPage";
 
 const MovieDetails = lazy(() => import('Pages/MovieDetails/MovieDetails'));
-const Home = lazy(() => import('Pages/Home'));
-const Movies = lazy(() => import('Pages/Movies'));
+const Home = lazy(() => import('Pages/Home/Home'));
+const Movies = lazy(() => import('Pages/Movies/Movies'));
 
 export const App = () => {
   return (

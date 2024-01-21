@@ -5,9 +5,6 @@ import { MoviesList } from "components/MoviesList/MoviesList";
 import { SearchForm } from "components/SearchForm/SearchForm";
 import { useSearchParams } from "react-router-dom";
 
-
-
-
 const Movies = () => {
   const [searchText, setSearchText] = useState('');
   const [searchedMovies, setSearchedMovies] = useState(null);

@@ -28,7 +28,6 @@ const Cast = ({movieId}) => {
       getCast();
     }
   }, [movieCast, movieId])
-  console.log(movieCast)
 
   return (
     <div className={css.castWrapper}>

@@ -5,6 +5,7 @@ import { STATUSES } from "utils/Constans";
 import cssApp from '../../components/App.module.css'
 import css from './MovieDetails.module.css'
 import { Loader } from "components/Loader/Loader";
+import NotFoundPage from "Pages/NotFoundPage/NotFoundPage";
 
 const Cast = lazy(() => import('Pages/Cast/Cast'))
 const Reviews = lazy(() => import('Pages/Reviews/Reviews'))
@@ -44,7 +45,6 @@ const MovieDetails = () => {
   
   return (
     <>
-      {/* {statuses === STATUSES.pending && <Loader/>} */}
       {statuses === STATUSES.error && error && <div>{error.message}</div>}
       
       {movieDetails && 
@@ -69,12 +69,12 @@ const MovieDetails = () => {
             
           
           <Suspense fallback={<div><Loader/></div>}>
-            <Routes >
+            <Routes>
               <Route path="/cast" element={<Cast movieId={movieId}></Cast>}></Route>
               <Route path="/reviews" element={<Reviews movieId={movieId}></Reviews>}></Route>
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
-
         </div>
       }
     </>

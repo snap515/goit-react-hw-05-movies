@@ -4,11 +4,14 @@ import { getMovieCast } from "services/movieService";
 
 import { defaultImg } from "../MovieDetails/MovieDetails";
 import css from './Cast.module.css'
+import { useParams } from "react-router-dom";
 
-const Cast = ({movieId}) => {
+const Cast = () => {
   const [movieCast, setMovieCast] = useState(null);
   const [statuses, setStatuses] = useState(STATUSES.idle);
   const [error, setError] = useState(null);
+
+  const {movieId} = useParams();
 
   useEffect(() => {
     const getCast = async () => {

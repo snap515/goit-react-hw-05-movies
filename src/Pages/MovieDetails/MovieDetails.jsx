@@ -1,13 +1,9 @@
-import { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { getMovieById } from "services/movieService";
 import { STATUSES } from "utils/Constans";
 import cssApp from '../../components/App.module.css'
 import css from './MovieDetails.module.css'
-import { Loader } from "components/Loader/Loader";
-
-const Cast = lazy(() => import('Pages/Cast/Cast'))
-const Reviews = lazy(() => import('Pages/Reviews/Reviews'))
 
 export const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
 
@@ -63,15 +59,9 @@ const MovieDetails = () => {
             <NavLink to='cast' className={({isActive}) => `${cssApp.navLink} ${isActive? cssApp.active : ''}`}>Cast</NavLink>
             <NavLink to='reviews' className={({ isActive }) => `${cssApp.navLink} ${isActive ? cssApp.active : ''}`}>Reviews</NavLink>
           </div>
-          
-          <Suspense fallback={<div><Loader/></div>}>
-            <Routes>
-              <Route path="/cast" element={<Cast movieId={movieId}></Cast>}></Route>
-              <Route path="/reviews" element={<Reviews movieId={movieId}></Reviews>}></Route>
-            </Routes>
-          </Suspense>
         </div>
       }
+      <Outlet/>
     </>
     )
 }

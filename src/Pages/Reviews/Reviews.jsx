@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import { STATUSES } from "utils/Constans";
 import { getMovieReviews } from "services/movieService";
 import css from './Reviews.module.css'
+import { useParams } from "react-router-dom";
 
-const Reviews = ({movieId}) => {
+const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState(null);
   const [statuses, setStatuses] = useState(STATUSES.idle);
   const [error, setError] = useState(null);
+
+  const { movieId } = useParams();
 
   useEffect(() => {
     const getReviews = async () => {
